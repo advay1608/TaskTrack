@@ -4,6 +4,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import taskRoutes from "./routes/taskRoutes.js";
 import logger from "./middleware/logger.js";
+import authRoutes from "./routes/authRoutes.js";
+
 
 
 dotenv.config();
@@ -12,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/tasks", taskRoutes);
+app.use("/api/auth", authRoutes);
 app.use(logger);
 
 

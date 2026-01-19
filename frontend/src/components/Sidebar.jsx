@@ -6,10 +6,11 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
-  const handleLogout = () => {
-    navigate("/");
-    setOpen(false);
-  };
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  navigate("/");
+};
+
 
   return (
     <>
