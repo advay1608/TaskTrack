@@ -3,6 +3,8 @@ import axios from "axios";
 import Sidebar from "../components/Sidebar";
 import "../styles/dashboard.css";
 import Footer from "../components/footer";
+import anime from "animejs";
+
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
@@ -13,7 +15,17 @@ const Dashboard = () => {
       setTasks(res.data);
     };
     fetchTasks();
+
+    anime({
+      targets: ".summary-card",
+      opacity: [0, 1],
+      translateY: [20, 0],
+      delay: anime.stagger(120),
+      duration: 500,
+      easing: "easeOutQuad"
+    });
   }, []);
+
 
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(t => t.status === "Completed").length;
@@ -24,7 +36,9 @@ const Dashboard = () => {
     <div className="layout">
       <Sidebar />
       <div className="content">
-        <h1>Dashboard</h1>
+        <div className="page-header">
+          <h1>Dashboard</h1>
+        </div>
         <p className="welcome-text">
           Welcome to <strong>TaskTrack</strong> 👋  
           Here’s a quick overview of your tasks.

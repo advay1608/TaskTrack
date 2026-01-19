@@ -1,16 +1,17 @@
 .layout {
   display: flex;
   min-height: 100vh;
-  margin: 0;
+  width: 100%;
 }
 
 .content {
   flex: 1;
   padding: 30px;
-  background: #f4f6f8;
   display: flex;
   flex-direction: column;
+  background: #f4f6f8;
 }
+
 
 
 .task-form {
@@ -44,9 +45,9 @@
   margin-right: 10px;
 }
 .card-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 20px;
 }
 
 .summary-card {
@@ -227,4 +228,83 @@
   margin-bottom: 25px;
   color: #4b5563;
   font-size: 15px;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+}
+
+.page-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+  .content {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .task-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .task-actions {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+  }
+
+  .task-actions button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .welcome-text {
+    font-size: 14px;
+  }
 }

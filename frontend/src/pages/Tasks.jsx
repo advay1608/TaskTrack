@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Sidebar from "../components/Sidebar";
 import "../styles/dashboard.css";
+import anime from "animejs";
+import Footer from "../components/footer";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -19,12 +21,22 @@ const Tasks = () => {
 
 
 
-    useEffect(
-        () => {
-            fetchTasks();
-        },
-        []
-    )
+    useEffect(() => {
+      fetchTasks();
+    }, []);
+
+    useEffect(() => {
+      if (tasks.length === 0) return;
+
+      anime({
+        targets: ".task-card",
+        opacity: [0, 1],
+        translateX: [-20, 0],
+        delay: anime.stagger(80),
+        duration: 400,
+        easing: "easeOutQuad"
+      });
+    }, [tasks]);
 
   const addTask = async () => {
     if (!title) return;
@@ -54,7 +66,9 @@ const Tasks = () => {
     <div className="layout">
       <Sidebar />
       <div className="content">
-        <h1>Tasks</h1>
+        <div className="page-header">
+          <h1>Tasks</h1>
+        </div>
 
         <div className="task-form">
           <input
@@ -112,7 +126,7 @@ const Tasks = () => {
             </div>
           ))}
         </div>
-
+                  <Footer />
       </div>
     </div>
   );
