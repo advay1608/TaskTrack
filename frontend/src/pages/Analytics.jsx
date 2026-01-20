@@ -31,7 +31,7 @@ const Analytics = () => {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await axios.get("http://localhost:5000/api/tasks");
+      const res = await axios.get("https://tasktrack-6tph.onrender.com/api/tasks");
       setTasks(res.data);
     };
     fetchTasks();

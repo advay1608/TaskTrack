@@ -42,7 +42,7 @@ const Tasks = () => {
   const addTask = async () => {
     if (!title) return;
 
-    await axios.post("http://localhost:5000/api/tasks", {
+    await axios.post("https://tasktrack-6tph.onrender.com/api/tasks", {
       title,
       priority
     });
@@ -52,14 +52,14 @@ const Tasks = () => {
   };
 
   const markComplete = async (id) => {
-    await axios.put(`http://localhost:5000/api/tasks/${id}`, {
+    await axios.put(`https://tasktrack-6tph.onrender.com/api/tasks/${id}`, {
       status: "Completed"
     });
     fetchTasks();
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+    await axios.delete(`https://tasktrack-6tph.onrender.com/api/tasks/${id}`);
     fetchTasks();
   };
 
