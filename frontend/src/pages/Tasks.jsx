@@ -13,7 +13,7 @@ const Tasks = () => {
 
   const fetchTasks = async () => {
     try {
-        const res = await axios.get("http://localhost:5000/api/tasks");
+        const res = await axios.get("https://tasktrack-6tph.onrender.com/api/tasks");
         setTasks(res.data);
     } catch (error) {
         console.error("Fetch tasks error:", error);
