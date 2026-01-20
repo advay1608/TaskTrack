@@ -13,7 +13,7 @@ const Tasks = () => {
 
   const fetchTasks = async () => {
     try {
-        const res = await axios.get("http://localhost:3001/api/tasks");
+        const res = await axios.get("http://localhost:5000/api/tasks");
         setTasks(res.data);
     } catch (error) {
         console.error("Fetch tasks error:", error);
@@ -42,7 +42,7 @@ const Tasks = () => {
   const addTask = async () => {
     if (!title) return;
 
-    await axios.post("http://localhost:3001/api/tasks", {
+    await axios.post("http://localhost:5000/api/tasks", {
       title,
       priority
     });
@@ -52,14 +52,14 @@ const Tasks = () => {
   };
 
   const markComplete = async (id) => {
-    await axios.put(`http://localhost:3001/api/tasks/${id}`, {
+    await axios.put(`http://localhost:5000/api/tasks/${id}`, {
       status: "Completed"
     });
     fetchTasks();
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:3001/api/tasks/${id}`);
+    await axios.delete(`http://localhost:5000/api/tasks/${id}`);
     fetchTasks();
   };
 

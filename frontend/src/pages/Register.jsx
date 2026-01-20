@@ -15,7 +15,7 @@ const Register = () => {
     console.log("REGISTER PAYLOAD:", { username, email, password });
 
     try {
-      await axios.post("http://localhost:3001/api/auth/register", {
+      await axios.post("http://localhost:5000/api/auth/register", {
         username,
         email,
         password
